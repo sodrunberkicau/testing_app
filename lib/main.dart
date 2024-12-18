@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -10,9 +9,7 @@ void main() {
   runApp(const TestingApp());
 }
 
-// GoRouter digunakan untuk mengatur navigasi di flutter
 final _router = GoRouter(
-  debugLogDiagnostics: kDebugMode,
   routes: [
     GoRoute(
       path: HomeScreen.routeName,
