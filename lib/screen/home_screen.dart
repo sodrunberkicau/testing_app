@@ -27,7 +27,9 @@ class HomeScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: 100,
         cacheExtent: 20.0,
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(
+          vertical: 16,
+        ),
         itemBuilder: (context, index) => ItemTile(index),
       ),
     );
@@ -59,9 +61,12 @@ class ItemTile extends StatelessWidget {
               ? const Icon(Icons.favorite)
               : const Icon(Icons.favorite_border),
           onPressed: () {
-            !favoritesList.items.contains(itemNo)
-                ? favoritesList.add(itemNo)
-                : favoritesList.remove(itemNo);
+            if (!favoritesList.items.contains(itemNo)) {
+              favoritesList.add(itemNo);
+            } else {
+              favoritesList.remove(itemNo);
+            }
+
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(favoritesList.items.contains(itemNo)
