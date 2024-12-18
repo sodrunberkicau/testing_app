@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:testing_app/logics/favorites_logic.dart';
+import 'package:testing_app/models/favorites_model.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});
@@ -11,7 +11,7 @@ class FavoritesScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Favorites'),
       ),
-      body: Consumer<FavoritesLogic>(
+      body: Consumer<FavoritesModel>(
         builder: (context, value, child) => ListView.builder(
           itemCount: value.items.length,
           padding: const EdgeInsets.symmetric(vertical: 16),
@@ -43,7 +43,7 @@ class FavoriteItemTile extends StatelessWidget {
           key: Key('remove_icon_$itemNo'),
           icon: const Icon(Icons.close),
           onPressed: () {
-            Provider.of<FavoritesLogic>(context, listen: false).remove(itemNo);
+            Provider.of<FavoritesModel>(context, listen: false).remove(itemNo);
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('Removed from favorites.'),

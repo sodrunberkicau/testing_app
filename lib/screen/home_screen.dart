@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:testing_app/logics/favorites_logic.dart';
+import 'package:testing_app/models/favorites_model.dart';
 import 'package:testing_app/screen/favorites_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -41,7 +41,7 @@ class ItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var favoritesList = Provider.of<FavoritesLogic>(context);
+    var favoritesList = Provider.of<FavoritesModel>(context);
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
